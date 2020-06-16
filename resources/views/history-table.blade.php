@@ -8,11 +8,11 @@
                 <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
                     <div>
                         <h2 class="text-white pb-2 fw-bold">Edit - Delete</h2>
-                        <h5 class="text-white op-7 mb-2">Dashboard -> Edit Delete</h5>
+                        <h5 class="text-white op-7 mb-2">Dashboard - History</h5>
                     </div>
                     <div class="ml-md-auto py-2 py-md-0">
-                        <a href="#" class="btn btn-white btn-border btn-round mr-2">Manage</a>
-                        <a href="#" class="btn btn-secondary btn-round">Add Customer</a>
+                        <a href="{{ url('maps') }}" class="btn btn-white btn-border btn-round mr-2">Kirim Lokasi</a>
+                        <a href="https://covid19.go.id/" class="btn btn-secondary btn-round">Gugus Tugas</a>
                     </div>
                 </div>
             </div>
@@ -41,27 +41,31 @@
 
                                     <table id="basic-datatables" class="display table table-striped table-hover" >
                                         <thead>
-                                            <tr>
+                                            <tr style="text-align: center">
                                                 <th>No</th>
-                                                <th>Nama Pasien</th>
+                                                <th>Nama Pasien (Samaran)</th>
                                                 <th>Jenis Kelamin</th>
                                                 <th>Asal Daerah</th>
-                                                <th>Nomer Pelapor</th>
+                                                {{-- <th>Nomer Pelapor</th> --}}
                                                 <th>Tanggal Laporan</th>
                                                 <th>Status</th>
                                             </tr>
                                         </thead>
 
                                         <tbody>
-                                            <?php $no = 0;?>
+                                            <?php $no = 0;
+                                            $length = 5;
+
+                                            $randomletter = substr(str_shuffle("abcdefghijklmnopqrstuvwxyz"), 0, $length);
+                                            ?>
                                             @foreach ( $show_data as $show)
                                             <?php $no++ ;?>
                                             <tr style="text-align: center">
                                                 <td>{{ $no }}</td>
-                                                <td>{{ $show->nama_pasien}}</td>
+                                                <td >{{ $randomletter}}{{ (rand(10,100))}}{{ $randomletter}}</td>
                                                 <td>{{ $show->jenis_kelamin }}</td>
                                                 <td>{{ $show->asal_daerah }}</td>
-                                                <td>{{ $show->no_pelapor }}</td>
+                                                {{-- <td>{{ $show->no_pelapor }}</td> --}}
                                                 <td>{{ $show->tanggal_laporan }}</td>
                                                 <td>{{ $show->status }}</td>
 

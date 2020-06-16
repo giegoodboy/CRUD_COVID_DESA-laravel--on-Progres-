@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\file_core;
+use App\fungsi;
 
 class report extends Controller
 {
@@ -45,4 +46,35 @@ class report extends Controller
     {
         return view('update');
     }
+
+    public function proses_edit(Request $request) {
+        //dd($request->all());
+        //  $nama = $request->input('id');
+        //  echo"$nama";
+        file_core::where('id', $request->input('id'))->update([
+          'nama_pasien' => $request->input('nama_pasien'),
+          'jenis_kelamin' => $request->input('jenis_kelamin'),
+          'asal_daerah' => $request->input('asal_daerah'),
+          'no_pelapor' => $request->input('no_pelapor'),
+          'status' => $request->input('status'),
+        ]);
+
+        return redirect('edit-delete')->with('status', 'Data Telah Diupdate');
+      }
+
+
+      public function delete($id=0){
+
+        if($id != 0){
+          // Delete
+
+          file_core::deleteData($id);
+
+        //   Session::flash('message','Delete successfully.');
+
+        }
+        return redirect('edit-delete')->with('status', 'Data Telah Dihapus');
+      }
+
+
 }

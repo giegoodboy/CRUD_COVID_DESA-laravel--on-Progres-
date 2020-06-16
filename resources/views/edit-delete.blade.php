@@ -8,12 +8,13 @@
                 <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
                     <div>
                         <h2 class="text-white pb-2 fw-bold">Edit - Delete</h2>
-                        <h5 class="text-white op-7 mb-2">Dashboard -> Edit Delete</h5>
+                        <h5 class="text-white op-7 mb-2">Dashboard - Edit Data</h5>
                     </div>
                     <div class="ml-md-auto py-2 py-md-0">
-                        <a href="#" class="btn btn-white btn-border btn-round mr-2">Manage</a>
-                        <a href="#" class="btn btn-secondary btn-round">Add Customer</a>
+                        <a href="{{ url('maps') }}" class="btn btn-white btn-border btn-round mr-2">Kirim Lokasi</a>
+                        <a href="https://covid19.go.id/" class="btn btn-secondary btn-round">Gugus Tugas</a>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -28,7 +29,8 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="card-head-row card-tools-still-right">
-                                <h4 class="card-title">History Data Input</h4>
+                                <h4 class="card-title">History Data Input
+                                </h4>
                                 <div class="card-tools">
 
                                 <a href="{{url('/')}}">  <button class="btn btn-icon btn-link btn-primary btn-xs"><span class="fa fa-times"></span></button></a>
@@ -38,12 +40,16 @@
 
                             <div class="card-body">
                                 <div class="table-responsive">
-
+                                    @if (session('status'))
+                                    <div class="alert alert-success">
+                                        {{ session('status') }}
+                                    </div>
+                                      @endif
                                     <table id="basic-datatables" class="display table table-striped table-hover" >
                                         <thead>
-                                            <tr>
+                                            <tr style="text-align: center">
                                                 <th>No</th>
-                                                <th>Nama Pasien</th>
+                                                <th>Nama Pasien (Samaran)</th>
                                                 <th>Jenis Kelamin</th>
                                                 <th>Asal Daerah</th>
                                                 <th>Nomer Pelapor</th>
@@ -67,7 +73,7 @@
                                                 <td class="status">{{ $show->status }}</td>
                                                 <td>
                                                     <button type="button" class="badge badge-primary" id="edit-item" data-item-id="{{ $show->id}}">edit</button>
-                                                    <a href="#deleteEmployeeModal" class="badge badge-warning" data-toggle="modal" >Delete</a>
+                                                    <a href="{{ $show->id }}/deleteid" class="badge badge-warning"  >Delete</a>
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -79,12 +85,13 @@
                             </div>
                         </div>
                     </div>
-
+                    {{-- @foreach ( $show_data as $show)
                     <!-- Delete Modal HTML -->
                     <div id="deleteEmployeeModal" class="modal fade">
                         <div class="modal-dialog">
                             <div class="modal-content">
-                                <form>
+                                <form method="POST" accept="{{url('/deleteid')}}">
+                                    @csrf
                                     <div class="modal-header">
                                         <h4 class="modal-title">Delete Data</h4>
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -95,12 +102,13 @@
                                     </div>
                                     <div class="modal-footer">
                                         <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                                        <input type="submit" class="btn btn-danger" value="Delete">
+                                        <input type="submit" id="modal-input-id" name="id" class="btn btn-danger" value="Delete">
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
+                    @endforeach --}}
 
 
 
@@ -115,7 +123,8 @@
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                             </button>
                             </div>
-                            <form method="post" action="rama gie">
+                            <form method="post" action="{{url('/proses')}}">
+                                @csrf
                                 <div class="card-body">
                                     <!-- id -->
                                     <div class="form-group">
@@ -141,11 +150,16 @@
                                     </div>
                                     <div class="form-group">
                                     <label class="col-form-label" for="modal-input-description">Status</label>
-                                    <input type="text" name="status" class="form-control" id="modal-input-status" required>
+                                    {{-- <input type="text" name="status" class="form-control" id="modal-input-status" required> --}}
+                                    <select name="status"  id="modal-input-status" class="form-control" >
+                                        <option>Positif</option>
+                                        <option>ODP</option>
+                                        <option>PDP</option>
+                                      </select>
                                     </div>
                                 </div>
                             <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            <button type="submit" id="modal-input-id" name="id" class="btn btn-primary">Update</button>
                         </form>
                             </div>
                         </div>

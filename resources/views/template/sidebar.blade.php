@@ -8,13 +8,14 @@
         <div class="sidebar-content">
             <div class="user">
                 <div class="avatar-sm float-left mr-2">
-                    <img src="../assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+                    <img src="../assets/profile/profile.png" alt="..." class="avatar-img rounded-circle">
                 </div>
                 <div class="info">
                     <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
                         <span>
-                            Hizrian
-                            <span class="user-level">Administrator</span>
+
+                            RandomUser{{ (rand(10,100))}}
+                            <span class="user-level">Lapor CVD19 Mandiri</span>
                             <span class="caret"></span>
                         </span>
                     </a>
@@ -55,7 +56,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a  href="data4">
+                    <a  href="{{ url('maps') }}">
                         <i class="fas fa-map-marker-alt"></i>
                         <p>Kirim Lokasi</p>
                     </a>

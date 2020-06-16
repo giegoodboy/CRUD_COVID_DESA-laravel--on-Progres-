@@ -8,11 +8,11 @@
                 <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
                     <div>
                         <h2 class="text-white pb-2 fw-bold">Dashboard</h2>
-                        <h5 class="text-white op-7 mb-2">Dashboard -> Add New Data</h5>
+                        <h5 class="text-white op-7 mb-2">Dashboard - Tambah Kasus</h5>
                     </div>
                     <div class="ml-md-auto py-2 py-md-0">
-                        <a href="#" class="btn btn-white btn-border btn-round mr-2">Manage</a>
-                        <a href="#" class="btn btn-secondary btn-round">Add Customer</a>
+                        <a href="{{ url('maps') }}" class="btn btn-white btn-border btn-round mr-2">Kirim Lokasi</a>
+                        <a href="https://covid19.go.id/" class="btn btn-secondary btn-round">Gugus Tugas</a>
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                       <div class="form-group row">
                         <label class="col-md-3 form-control-label">Nama Pasien</label>
                         <div class="col-md-9">
-                          <input name="nama_pasien" type="text" placeholder="Masukan Nama" class="form-control">
+                          <input name="nama_pasien" type="text" placeholder="Masukan Nama" value="{{old('nama_pasien')}}" class="form-control">
                         </div>
                       </div>
                       <div class="form-group row">
