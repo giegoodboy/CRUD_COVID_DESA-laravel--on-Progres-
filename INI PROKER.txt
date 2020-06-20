@@ -5,7 +5,7 @@ DASHBOARD
 4.menampilkan daerah yang paling banyak dilaporkan
 
 CRUD
-1.tidak ada login (open)
+1.tidak ada login untuk user 
 2.user meng input sesuai daerah yang sedang dilaporkan
 3.user bisa mengedit data input lewat nomer hp(sesuai dengan data yang dia masukan)
 4.histori  bebas diakses , namun nama pasien dan no hp wajib(sensor)
