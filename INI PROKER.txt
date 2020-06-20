@@ -1,0 +1,21 @@
+DASHBOARD
+1.bisa melihat total opd-pdp-positif-negatif-meningal
+2.mengetahui dalam secara detail informasi orang menigal dan sembuh
+3.menampilkan saran saran yang diinputkan oleh user
+
+CRUD
+1.tidak ada login (open)
+2.user meng input sesuai daerah yang sedang dilaporkan
+3.user bisa mengedit data input lewat nomer hp(sesuai dengan data yang dia masukan)
+4.histori  bebas diakses , namun nama pasien dan no hp wajib(sensor)
+5.memberikan masukan lokasi yang disinyalir sebagai tempat terdapat kasus
+
+
+AKSES
+1.admin adalah super user
+2.user hanya bisa mengedit data inputanya sendiri
+3.data diurutkan dari yang terbaru
+4.memberikan error jika bukan admin yang mengakses situs admin
+
+fitur
++usahakan bisa menangkan lokasi saat user ingin mengirim lokasi (share lokasi)
