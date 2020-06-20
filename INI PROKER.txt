@@ -2,6 +2,7 @@ DASHBOARD
 1.bisa melihat total opd-pdp-positif-negatif-meningal
 2.mengetahui dalam secara detail informasi orang menigal dan sembuh
 3.menampilkan saran saran yang diinputkan oleh user
+4.menampilkan daerah yang paling banyak dilaporkan
 
 CRUD
 1.tidak ada login (open)
